@@ -4,9 +4,13 @@ import { HiTrendingUp } from "react-icons/hi";
 import { BiSolidMusic } from "react-icons/bi";
 import { IoMusicalNotes, IoSettingsSharp } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
+import { VscVerifiedFilled } from "react-icons/vsc";
 
 export const Logo = () => (
     <IoMusicalNotes className="text-primary" size="2.5em" />
+);
+export const VerifiedBadge = () => (
+    <VscVerifiedFilled size="1.5em" className="text-blue-400 my-auto" />
 );
 
 export const HomeIcon = () => <GoHomeFill size="1.1em" />;
