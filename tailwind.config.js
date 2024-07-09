@@ -6,6 +6,7 @@ export default {
             colors: {
                 primary: "#FF5353",
                 muted: "#CFC5C5",
+                secondary: "#2C0000",
             },
             borderRadius: {
                 DEFAULT: ".75rem",
