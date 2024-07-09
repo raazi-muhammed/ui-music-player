@@ -9,7 +9,7 @@ export default function App() {
         <section className="flex h-full text-white">
             <SideBar />
             <main className="w-full bg-gradient-to-t to-[#4A0101]  from-[#0B0A0A]">
-                <div className="container mx-auto max-w-[70rem]">
+                <div className="container mx-auto max-w-[70rem] overflow-auto">
                     <NavBar />
                     <Artist />
                     <MusicListing />

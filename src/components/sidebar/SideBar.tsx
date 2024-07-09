@@ -18,7 +18,7 @@ function NavButton({ children, icon }: { children: string; icon: ReactNode }) {
 
 export default function SideBar() {
     return (
-        <aside className="flex-shrink-0 w-72 h-svh bg-[#0E0E0E] p-6 flex flex-col gap-8">
+        <aside className="sticky top-0 flex-shrink-0 w-72 h-svh bg-[#0E0E0E] p-6 flex flex-col gap-8">
             <header className="flex gap-2 align-middle">
                 <Icons.Logo />
                 <p className="font-semibold text-3xl ">
