@@ -6,6 +6,7 @@ export const songs = [
         playing: 1357890,
         time: "04:54",
         album: "Thriller",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -15,6 +16,7 @@ export const songs = [
         playing: 1543201,
         time: "05:57",
         album: "Thriller",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -24,6 +26,7 @@ export const songs = [
         playing: 1234567,
         time: "04:18",
         album: "Thriller",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -33,6 +36,7 @@ export const songs = [
         playing: 1109876,
         time: "04:17",
         album: "Bad",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -42,6 +46,7 @@ export const songs = [
         playing: 1012345,
         time: "04:08",
         album: "Bad",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -51,6 +56,7 @@ export const songs = [
         playing: 987654,
         time: "04:33",
         album: "Dangerous",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -60,6 +66,7 @@ export const songs = [
         playing: 856789,
         time: "05:19",
         album: "Bad",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -69,6 +76,7 @@ export const songs = [
         playing: 935421,
         time: "03:59",
         album: "Dangerous",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -78,6 +86,7 @@ export const songs = [
         playing: 965432,
         time: "06:06",
         album: "HIStory",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
     {
@@ -87,6 +96,7 @@ export const songs = [
         playing: 1256789,
         time: "05:34",
         album: "HIStory",
+        artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
     },
 ];
