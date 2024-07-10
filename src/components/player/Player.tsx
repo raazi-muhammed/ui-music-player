@@ -1,6 +1,15 @@
-import { ButtonHTMLAttributes, ReactNode, useState } from "react";
+import {
+    ButtonHTMLAttributes,
+    LegacyRef,
+    ReactNode,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import * as Icons from "../../icons";
 import { songs } from "../listing/data";
+import ReactHowler from "react-howler";
+import { formatTimeInSeconds } from "../../utils/utils";
 
 function ControlButtons({
     icon,
@@ -23,12 +32,29 @@ function ControlButtons({
 
 export default function Player() {
     const [playing, setPlaying] = useState(false);
+    const player = useRef<ReactHowler>();
+
+    useEffect(() => {
+        if (player.current) {
+            player.current.seek(0);
+            console.log(player.current);
+        }
+    }, []);
     const song = songs[0];
 
     return (
-        <aside className="sticky top-0 flex-shrink-0 w-80 h-svh bg-[#230909] p-8 flex flex-col justify-end">
-            <section className="bg-accent rounded p-4 space-y-4 h-fit">
-                <section className="text-center space-y-2">
+        <aside className="sticky top-0 flex h-svh w-80 flex-shrink-0 flex-col justify-end bg-[#230909] p-8">
+            <ReactHowler
+                html5={true}
+                src="music/Billie.mp3"
+                playing={playing}
+                onPlay={(e) => console.log(e)}
+                ref={player as any}
+                onSeek={(e) => console.log(e)}
+            />
+
+            <section className="h-fit space-y-4 rounded bg-accent p-4">
+                <section className="space-y-2 text-center">
                     <p className="text-sm">Now Playing</p>
                     <img src={song.cover} alt="" className="w-full rounded" />
                     <div>
@@ -36,9 +62,21 @@ export default function Player() {
                         <small className="text-muted">{song.artist}</small>
                     </div>
                 </section>
-                <section className="flex align-middle justify-center gap-2">
+                <section className="flex gap-2 text-xs">
+                    <p>{formatTimeInSeconds(0)}</p>
+                    <input
+                        type="range"
+                        className="w-full"
+                        min={0}
+                        max={player.current?.duration()}
+                    />
+                    <p>
+                        {formatTimeInSeconds(player.current?.duration() || 0)}
+                    </p>
+                </section>
+                <section className="flex justify-center gap-2 align-middle">
                     <ControlButtons size="sm" icon={Icons.LoopIcon()} />
-                    <div className="flex align-middle justify-center gap-0">
+                    <div className="flex justify-center gap-0 align-middle">
                         <ControlButtons size="sm" icon={Icons.PreviousIcon()} />
                         {playing ? (
                             <ControlButtons

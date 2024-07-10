@@ -3,9 +3,9 @@ import { formatNumber } from "../../utils/utils";
 
 function VerifiedBadge() {
     return (
-        <div className="flex align-middle gap-1">
+        <div className="flex gap-1 align-middle">
             <Icons.VerifiedBadge />
-            <small className="text-muted my-auto">Verified Artist</small>
+            <small className="my-auto text-muted">Verified Artist</small>
         </div>
     );
 }
@@ -19,13 +19,13 @@ export default function Artist() {
         },
     };
     return (
-        <section className="relative p-12 w-full mt-28">
+        <section className="container relative mx-auto w-full p-24">
             <img src="/cover.png" alt="cover" className="w-full" />
             <section className="absolute inset-12 grid grid-cols-2">
-                <section className="p-8 my-auto space-y-2">
+                <section className="my-auto space-y-2 p-8">
                     {artist.isVerified && <VerifiedBadge />}
                     <p className="text-4xl">{artist.name}</p>
-                    <small className="text-muted block pt-4">
+                    <small className="block pt-4 text-muted">
                         {formatNumber(artist.listeners.monthly)} monthly
                         listeners
                     </small>
@@ -33,7 +33,7 @@ export default function Artist() {
                 <div className="relative">
                     <img
                         src="/artist.png"
-                        className="bottom-0 right-8 scale-125 origin-bottom-right absolute"
+                        className="absolute bottom-0 right-8 origin-bottom-right scale-125"
                         alt="artist"
                     />
                 </div>

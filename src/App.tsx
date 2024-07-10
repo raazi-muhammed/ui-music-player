@@ -8,12 +8,12 @@ export default function App() {
     return (
         <section className="flex h-full text-white">
             <SideBar />
-            <main className="w-full bg-gradient-to-t to-[#4A0101]  from-[#0B0A0A]">
-                <div className="container mx-auto max-w-[70rem] overflow-auto">
-                    <NavBar />
+            <main className="w-full bg-gradient-to-t from-[#0B0A0A] to-[#4A0101]">
+                <NavBar />
+                <article className="space-y-12">
                     <Artist />
                     <MusicListing />
-                </div>
+                </article>
             </main>
             <Player />
         </section>

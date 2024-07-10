@@ -12,7 +12,7 @@ function Link({ children }: { children: ReactNode }) {
 
 export default function NavBar() {
     return (
-        <nav className="p-8 flex justify-between align-middle gap-28">
+        <nav className="px-24 py-8 flex container mx-auto justify-between align-middle gap-28">
             <ul className="flex gap-8 my-auto flex-shrink-0 ms-4">
                 <li>
                     <Link>Music</Link>

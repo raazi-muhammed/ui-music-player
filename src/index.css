@@ -11,3 +11,30 @@
 th {
     font-weight: 300;
 }
+
+tr::before,
+tr::after {
+    content: "";
+    width: 25vw;
+    position: absolute;
+    height: 100%;
+}
+
+tr::before {
+    left: 0;
+    margin-left: -25vw;
+}
+
+tr::after {
+    right: 0;
+    margin-right: -25vw;
+}
+
+tr:hover::before,
+tr:hover::after {
+    background-color: #6b0000;
+}
+thead > tr:hover::before,
+thead > tr:hover::after {
+    background-color: transparent;
+}

@@ -1,3 +1,14 @@
+export type Song = {
+    id: number;
+    title: string;
+    lengthInSeconds: number;
+    playing: number;
+    time: string;
+    album: string;
+    artist: string;
+    cover: string;
+};
+
 export const songs = [
     {
         id: 1,
