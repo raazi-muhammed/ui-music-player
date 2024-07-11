@@ -7,9 +7,9 @@ export type Song = {
     album: string;
     artist: string;
     cover: string;
+    song: string;
 };
-
-export const songs = [
+export const songs: Song[] = [
     {
         id: 1,
         title: "Billie Jean",
@@ -18,7 +18,8 @@ export const songs = [
         time: "04:54",
         album: "Thriller",
         artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        cover: "https://i1.sndcdn.com/artworks-000078507256-het7tk-original.jpg",
+        song: "/music/billie-jean.mov",
     },
     {
         id: 2,
@@ -29,26 +30,7 @@ export const songs = [
         album: "Thriller",
         artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
-    },
-    {
-        id: 3,
-        title: "Beat It",
-        lengthInSeconds: 258,
-        playing: 1234567,
-        time: "04:18",
-        album: "Thriller",
-        artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
-    },
-    {
-        id: 4,
-        title: "Smooth Criminal",
-        lengthInSeconds: 257,
-        playing: 1109876,
-        time: "04:17",
-        album: "Bad",
-        artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        song: "/music/thriller.mov",
     },
     {
         id: 5,
@@ -59,6 +41,7 @@ export const songs = [
         album: "Bad",
         artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        song: "/music/bad.mov",
     },
     {
         id: 6,
@@ -69,6 +52,7 @@ export const songs = [
         album: "Dangerous",
         artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        song: "/music/black-or-white.mov",
     },
     {
         id: 7,
@@ -79,6 +63,7 @@ export const songs = [
         album: "Bad",
         artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        song: "/music/bad.mov",
     },
     {
         id: 8,
@@ -89,6 +74,7 @@ export const songs = [
         album: "Dangerous",
         artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        song: "/music/remember-the-time.mov",
     },
     {
         id: 9,
@@ -99,15 +85,6 @@ export const songs = [
         album: "HIStory",
         artist: "Michael Jackson",
         cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
-    },
-    {
-        id: 10,
-        title: "You Are Not Alone",
-        lengthInSeconds: 334,
-        playing: 1256789,
-        time: "05:34",
-        album: "HIStory",
-        artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        song: "/music/earth.mov",
     },
 ];

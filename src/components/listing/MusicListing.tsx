@@ -1,6 +1,6 @@
-import { DragEvent, useState } from "react";
+import { DragEvent, useContext, useState } from "react";
 import { formatNumber, formatTimeInSeconds } from "../../utils/utils";
-import { Song, songs as rawSongs } from "./data";
+import { PlayerContext } from "../../context/PlayerContext";
 
 function Droppable({
     insertSongAfter,
@@ -16,8 +16,6 @@ function Droppable({
     };
 
     const handleDragEnd = (e: DragEvent<HTMLDivElement>) => {
-        console.log("hiiii");
-
         const data = e.dataTransfer.getData("musicId");
         console.log(data);
         insertSongAfter(currentSongId, Number(data));
@@ -37,20 +35,7 @@ function Droppable({
 }
 
 export default function MusicListing() {
-    const [songs, setSongs] = useState<Song[]>(rawSongs);
-
-    function insertSongAfter(addAfter: number, toAdd: number) {
-        setSongs((songs) => {
-            const newSongs: Song[] = [];
-            const songToAdd = songs.find((s) => s.id === toAdd);
-            songs.map((song) => {
-                if (song.id === toAdd) return;
-                newSongs.push(song);
-                if (song.id === addAfter && songToAdd) newSongs.push(songToAdd);
-            });
-            return newSongs;
-        });
-    }
+    const { changeSong, songs, insertSongAfter } = useContext(PlayerContext);
 
     function handleDragStart(e: DragEvent<HTMLDivElement>, musicId: number) {
         e.dataTransfer.setData("musicId", String(musicId));
@@ -64,7 +49,7 @@ export default function MusicListing() {
                     See All
                 </button>
             </section>
-            <section>
+            <section className="mb-60 lg:mb-40 xl:mb-12">
                 <section className="container mx-auto grid w-full grid-cols-footer-sm gap-4 px-8 lg:grid-cols-footer">
                     <p className="hidden lg:block">#</p>
                     <p></p>
@@ -76,7 +61,9 @@ export default function MusicListing() {
                 <section>
                     {songs.map((song, index) => (
                         <>
-                            <div className="w-full hover:bg-accent">
+                            <div
+                                className="w-full hover:bg-accent"
+                                onClick={() => changeSong(song.id)}>
                                 <div
                                     draggable
                                     onDragStart={(e) =>

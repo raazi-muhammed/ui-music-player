@@ -1,14 +1,14 @@
 import {
     ButtonHTMLAttributes,
     ReactNode,
+    useContext,
     useEffect,
     useRef,
-    useState,
 } from "react";
 import * as Icons from "../../icons";
-import { songs } from "../listing/data";
 import ReactHowler from "react-howler";
 import { formatTimeInSeconds } from "../../utils/utils";
+import { PlayerContext } from "../../context/PlayerContext";
 
 function ControlButtons({
     icon,
@@ -32,8 +32,9 @@ function ControlButtons({
 }
 
 export default function Player() {
-    const [playing, setPlaying] = useState(false);
     const player = useRef<ReactHowler>();
+    const { song, playing, togglePlaying, nextSong, prevSong } =
+        useContext(PlayerContext);
 
     useEffect(() => {
         if (player.current) {
@@ -41,19 +42,17 @@ export default function Player() {
             console.log(player.current);
         }
     }, []);
-    const song = songs[0];
 
     return (
         <aside className="fixed bottom-20 z-10 flex h-fit w-svw flex-shrink-0 flex-col gap-8 bg-transparent px-6 py-2 lg:bottom-6 xl:sticky xl:top-0 xl:h-svh xl:w-72 xl:bg-secondary xl:py-6">
             <ReactHowler
                 html5={true}
-                src="music/Billie.mp3"
+                preload
+                src={song.song}
                 playing={playing}
-                onPlay={(e) => console.log(e)}
+                onVolume={(e) => console.log({ vol: e })}
                 ref={player as any}
-                onSeek={(e) => console.log(e)}
             />
-
             <section className="ms-auto flex h-fit w-full max-w-[30rem] justify-between gap-6 space-y-4 rounded bg-accent p-4 align-middle xl:mt-auto xl:flex-col xl:gap-1">
                 <div className="my-auto flex gap-4 align-middle xl:flex-col">
                     <section className="space-y-2 text-center">
@@ -92,24 +91,26 @@ export default function Player() {
                         />
                         <div className="flex justify-center gap-0 align-middle">
                             <ControlButtons
+                                onClick={() => prevSong()}
                                 size="sm"
                                 className="hidden sm:block"
                                 icon={Icons.PreviousIcon()}
                             />
                             {playing ? (
                                 <ControlButtons
-                                    onClick={() => setPlaying(false)}
+                                    onClick={() => togglePlaying(false)}
                                     size="md"
                                     icon={Icons.PauseIcon()}
                                 />
                             ) : (
                                 <ControlButtons
-                                    onClick={() => setPlaying(true)}
+                                    onClick={() => togglePlaying(true)}
                                     size="md"
                                     icon={Icons.PlayIcon()}
                                 />
                             )}
                             <ControlButtons
+                                onClick={() => nextSong()}
                                 className="hidden sm:block"
                                 size="sm"
                                 icon={Icons.NextIcon()}
