@@ -6,11 +6,11 @@ import SideBar from "./components/sidebar/SideBar";
 
 export default function App() {
     return (
-        <section className="flex h-full text-white">
+        <section className="relative flex h-full text-white">
             <SideBar />
             <main className="w-full bg-gradient-to-t from-[#0B0A0A] to-[#4A0101]">
                 <NavBar />
-                <article className="space-y-12">
+                <article className="space-y-12 lg:px-12">
                     <Artist />
                     <MusicListing />
                 </article>

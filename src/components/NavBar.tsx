@@ -4,7 +4,7 @@ function Link({ children }: { children: ReactNode }) {
     return (
         <a
             href="#"
-            className="hover:underline underline-offset-2 decoration-2 hover:text-primary">
+            className="decoration-2 underline-offset-2 hover:text-primary hover:underline">
             {children}
         </a>
     );
@@ -12,8 +12,8 @@ function Link({ children }: { children: ReactNode }) {
 
 export default function NavBar() {
     return (
-        <nav className="px-24 py-8 flex container mx-auto justify-between align-middle gap-28">
-            <ul className="flex gap-8 my-auto flex-shrink-0 ms-4">
+        <nav className="container flex max-w-full justify-between gap-28 py-8 align-middle lg:px-24">
+            <ul className="mx-8 my-auto flex w-full justify-around gap-8 lg:w-fit">
                 <li>
                     <Link>Music</Link>
                 </li>
@@ -29,7 +29,7 @@ export default function NavBar() {
             </ul>
             <input
                 type="text"
-                className="bg-secondary border-none max-w-96 py-2 px-4 rounded-full focus:outline-none focus:outline-primary w-full"
+                className="hidden w-full max-w-96 rounded-full border-none bg-secondary px-4 py-2 focus:outline-none focus:outline-primary lg:block"
                 placeholder="Search"
             />
         </nav>

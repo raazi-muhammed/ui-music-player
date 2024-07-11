@@ -19,10 +19,14 @@ export default function Artist() {
         },
     };
     return (
-        <section className="container relative mx-auto w-full p-24">
-            <img src="/cover.png" alt="cover" className="w-full" />
-            <section className="absolute inset-12 grid grid-cols-2">
-                <section className="my-auto space-y-2 p-8">
+        <section className="container relative mx-auto w-full p-6">
+            <img
+                src="/cover.png"
+                alt="cover"
+                className="min-h-[15rem] w-full rounded-2xl object-cover"
+            />
+            <section className="absolute inset-12 -m-6 flex">
+                <section className="my-auto flex-[1] space-y-2 p-8">
                     {artist.isVerified && <VerifiedBadge />}
                     <p className="text-4xl">{artist.name}</p>
                     <small className="block pt-4 text-muted">
@@ -30,10 +34,10 @@ export default function Artist() {
                         listeners
                     </small>
                 </section>
-                <div className="relative">
+                <div className="relative flex-[1]">
                     <img
                         src="/artist.png"
-                        className="absolute bottom-0 right-8 origin-bottom-right scale-125"
+                        className="absolute bottom-0 right-8 w-full origin-bottom-right scale-110"
                         alt="artist"
                     />
                 </div>

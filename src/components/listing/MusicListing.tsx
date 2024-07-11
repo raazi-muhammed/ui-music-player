@@ -58,18 +58,18 @@ export default function MusicListing() {
 
     return (
         <section className="w-full">
-            <section className="container mx-auto mb-8 flex justify-between px-24">
+            <section className="container mx-auto mb-8 flex justify-between px-8">
                 <p className="text-xl font-semibold">Popular</p>
                 <button className="mt-auto text-sm font-normal text-muted decoration-2 underline-offset-2 hover:underline">
                     See All
                 </button>
             </section>
             <section>
-                <section className="container mx-auto grid grid-cols-6 px-24">
-                    <p>#</p>
+                <section className="container mx-auto grid w-full grid-cols-footer-sm gap-4 px-8 lg:grid-cols-footer">
+                    <p className="hidden lg:block">#</p>
                     <p></p>
                     <p>Title</p>
-                    <p>Playing</p>
+                    <p className="hidden lg:block">Playing</p>
                     <p>Time</p>
                     <p className="text-end">Album</p>
                 </section>
@@ -83,21 +83,27 @@ export default function MusicListing() {
                                         handleDragStart(e, song.id)
                                     }
                                     key={song.id}
-                                    className="container mx-auto grid grid-cols-6 items-center px-24">
-                                    <p className="w-8">{index + 1}</p>
+                                    className="container mx-auto grid grid-cols-footer-sm items-center gap-4 px-8 lg:grid-cols-footer">
+                                    <p className="hidden lg:block">
+                                        {index + 1}
+                                    </p>
                                     <img
                                         src={song.cover}
                                         alt="cover"
                                         className="size-12 w-fit"
                                     />
                                     <p>{song.title}</p>
-                                    <p>{formatNumber(song.playing)}</p>
+                                    <p className="hidden lg:block">
+                                        {formatNumber(song.playing)}
+                                    </p>
                                     <p>
                                         {formatTimeInSeconds(
                                             song.lengthInSeconds
                                         )}
                                     </p>
-                                    <p className="text-end">{song.album}</p>
+                                    <p className="truncate text-end">
+                                        {song.album}
+                                    </p>
                                 </div>
                             </div>
                             <Droppable
