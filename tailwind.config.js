@@ -17,7 +17,7 @@ export default {
             sans: ["Poppins", "system-ui"],
         },
         gridTemplateColumns: {
-            footer: "minmax(0, 1rem) minmax(0, 3rem) minmax(8rem, 1fr) minmax(0, 10rem) minmax(0, 5rem) minmax(0, 10rem)",
+            footer: "minmax(0, 2rem) minmax(0, 3rem) minmax(8rem, 1fr) minmax(0, 10rem) minmax(0, 5rem) minmax(0, 10rem)",
             "footer-sm":
                 "minmax(0, 3rem) minmax(0, 1fr) minmax(0, 2rem) minmax(0, 5rem)",
         },

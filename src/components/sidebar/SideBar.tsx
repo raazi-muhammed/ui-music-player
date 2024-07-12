@@ -11,9 +11,9 @@ function Label({ children }: { children: ReactNode }) {
 
 function NavButton({ children, icon }: { children: string; icon: ReactNode }) {
     return (
-        <button className="flex w-fit flex-col gap-2 rounded p-2 text-start align-middle hover:bg-primary lg:flex-row">
-            <div className="mx-auto my-auto text-primary">{icon}</div>
-            <p className="mx-auto text-xs lg:text-base">{children}</p>
+        <button className="flex w-fit flex-col gap-2 rounded p-2 text-start align-middle hover:bg-accent lg:w-full lg:flex-row">
+            <div className="mx-auto my-auto text-primary lg:mx-2">{icon}</div>
+            <p className="mx-auto text-xs lg:mx-0 lg:text-base">{children}</p>
         </button>
     );
 }

@@ -1,54 +1,18 @@
-import { DragEvent, useContext, useState } from "react";
-import { formatNumber, formatTimeInSeconds } from "../../utils/utils";
+import { Fragment, useContext } from "react";
 import { PlayerContext } from "../../context/PlayerContext";
-
-function Droppable({
-    insertSongAfter,
-    currentSongId,
-}: {
-    currentSongId: number;
-    insertSongAfter: (addAfter: number, toAdd: number) => void;
-}) {
-    const [active, setActive] = useState(false);
-    const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        setActive(true);
-    };
-
-    const handleDragEnd = (e: DragEvent<HTMLDivElement>) => {
-        const data = e.dataTransfer.getData("musicId");
-        console.log(data);
-        insertSongAfter(currentSongId, Number(data));
-        setActive(false);
-    };
-
-    return (
-        <div
-            onDragOver={handleDragOver}
-            onDragLeave={() => setActive(false)}
-            onDrop={handleDragEnd}
-            role="drappable"
-            className={`m-1 h-3 container mx-auto ${
-                active ? "bg-primary" : "bg-transparent"
-            }`}></div>
-    );
-}
+import Track from "./Track";
+import { Droppable } from "./Droppable";
 
 export default function MusicListing() {
     const {
-        changeSong,
         songs,
         insertSongAfter,
         song: currentSong,
     } = useContext(PlayerContext);
 
-    function handleDragStart(e: DragEvent<HTMLDivElement>, musicId: number) {
-        e.dataTransfer.setData("musicId", String(musicId));
-    }
-
     return (
         <section className="w-full">
-            <section className="container mx-auto mb-8 flex justify-between lg:px-12">
+            <section className="container mx-auto mb-8 flex justify-between px-6 lg:px-12">
                 <p className="text-xl font-semibold">Popular</p>
                 <button className="mt-auto text-sm font-normal text-muted decoration-2 underline-offset-2 hover:underline">
                     See All
@@ -65,46 +29,17 @@ export default function MusicListing() {
                 </section>
                 <section>
                     {songs.map((song, index) => (
-                        <>
-                            <div
-                                className={`w-full hover:bg-accent/50 ${
-                                    song.id === currentSong.id && "bg-accent"
-                                }`}
-                                onClick={() => changeSong(song.id)}>
-                                <div
-                                    draggable
-                                    onDragStart={(e) =>
-                                        handleDragStart(e, song.id)
-                                    }
-                                    key={song.id}
-                                    className="container mx-auto grid grid-cols-footer-sm items-center gap-4 px-8 lg:grid-cols-footer lg:px-12">
-                                    <p className="hidden lg:block">
-                                        {index + 1}
-                                    </p>
-                                    <img
-                                        src={song.cover}
-                                        alt="cover"
-                                        className="size-12 w-fit"
-                                    />
-                                    <p>{song.title}</p>
-                                    <p className="hidden lg:block">
-                                        {formatNumber(song.playing)}
-                                    </p>
-                                    <p>
-                                        {formatTimeInSeconds(
-                                            song.lengthInSeconds
-                                        )}
-                                    </p>
-                                    <p className="truncate text-end">
-                                        {song.album}
-                                    </p>
-                                </div>
-                            </div>
+                        <Fragment key={song.id}>
+                            <Track
+                                song={song}
+                                active={song.id === currentSong.id}
+                                number={index + 1}
+                            />
                             <Droppable
                                 currentSongId={song.id}
                                 insertSongAfter={insertSongAfter}
                             />
-                        </>
+                        </Fragment>
                     ))}
                 </section>
             </section>

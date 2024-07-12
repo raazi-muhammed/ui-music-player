@@ -17,6 +17,10 @@ import {
 export const Logo = () => (
     <IoMusicalNotes className="text-primary" size="2.5em" />
 );
+export const MusicIcon = () => (
+    <IoMusicalNotes className="-ms-4 text-primary" size="2em" />
+);
+
 export const VerifiedBadge = () => (
     <VscVerifiedFilled size="1.5em" className="my-auto text-blue-400" />
 );

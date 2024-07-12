@@ -26,7 +26,7 @@ export default function Artist() {
                 className="min-h-[15rem] w-full rounded-2xl object-cover"
             />
             <section className="absolute inset-12 -m-6 flex">
-                <section className="my-auto flex-[1] space-y-2 p-8">
+                <section className="my-auto flex-[1] space-y-2 p-8 lg:ms-4">
                     {artist.isVerified && <VerifiedBadge />}
                     <p className="text-4xl">{artist.name}</p>
                     <small className="block pt-4 text-muted">

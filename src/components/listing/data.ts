@@ -29,7 +29,7 @@ export const songs: Song[] = [
         time: "05:57",
         album: "Thriller",
         artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        cover: "https://i1.sndcdn.com/artworks-000134348176-mnbzt8-t500x500.jpg",
         song: "/music/thriller.mov",
     },
     {
@@ -40,7 +40,7 @@ export const songs: Song[] = [
         time: "04:08",
         album: "Bad",
         artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        cover: "https://i1.sndcdn.com/artworks-000252383573-9vinot-t500x500.jpg",
         song: "/music/bad.mov",
     },
     {
@@ -51,7 +51,7 @@ export const songs: Song[] = [
         time: "04:33",
         album: "Dangerous",
         artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        cover: "https://i1.sndcdn.com/artworks-Yg7s6cBg3DZ32J1T-F0YTkw-t500x500.jpg",
         song: "/music/black-or-white.mov",
     },
     {
@@ -62,7 +62,7 @@ export const songs: Song[] = [
         time: "05:19",
         album: "Bad",
         artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        cover: "https://i1.sndcdn.com/artworks-000206393695-gtqwch-t500x500.jpg",
         song: "/music/bad.mov",
     },
     {
@@ -73,7 +73,7 @@ export const songs: Song[] = [
         time: "03:59",
         album: "Dangerous",
         artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        cover: "https://i1.sndcdn.com/artworks-Jk9sOGgsEzpO5wBf-kynGZw-t500x500.jpg",
         song: "/music/remember-the-time.mov",
     },
     {
@@ -84,7 +84,7 @@ export const songs: Song[] = [
         time: "06:06",
         album: "HIStory",
         artist: "Michael Jackson",
-        cover: "https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be",
+        cover: "https://i1.sndcdn.com/artworks-krOtBM00N6DmfhTX-qwsklg-t500x500.jpg",
         song: "/music/earth.mov",
     },
 ];
