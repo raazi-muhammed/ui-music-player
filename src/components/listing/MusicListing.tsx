@@ -35,7 +35,12 @@ function Droppable({
 }
 
 export default function MusicListing() {
-    const { changeSong, songs, insertSongAfter } = useContext(PlayerContext);
+    const {
+        changeSong,
+        songs,
+        insertSongAfter,
+        song: currentSong,
+    } = useContext(PlayerContext);
 
     function handleDragStart(e: DragEvent<HTMLDivElement>, musicId: number) {
         e.dataTransfer.setData("musicId", String(musicId));
@@ -43,14 +48,14 @@ export default function MusicListing() {
 
     return (
         <section className="w-full">
-            <section className="container mx-auto mb-8 flex justify-between px-8">
+            <section className="container mx-auto mb-8 flex justify-between lg:px-12">
                 <p className="text-xl font-semibold">Popular</p>
                 <button className="mt-auto text-sm font-normal text-muted decoration-2 underline-offset-2 hover:underline">
                     See All
                 </button>
             </section>
             <section className="mb-60 lg:mb-40 xl:mb-12">
-                <section className="container mx-auto grid w-full grid-cols-footer-sm gap-4 px-8 lg:grid-cols-footer">
+                <section className="container mx-auto grid w-full grid-cols-footer-sm gap-4 px-8 lg:grid-cols-footer lg:px-12">
                     <p className="hidden lg:block">#</p>
                     <p></p>
                     <p>Title</p>
@@ -62,7 +67,9 @@ export default function MusicListing() {
                     {songs.map((song, index) => (
                         <>
                             <div
-                                className="w-full hover:bg-accent"
+                                className={`w-full hover:bg-accent/50 ${
+                                    song.id === currentSong.id && "bg-accent"
+                                }`}
                                 onClick={() => changeSong(song.id)}>
                                 <div
                                     draggable
@@ -70,7 +77,7 @@ export default function MusicListing() {
                                         handleDragStart(e, song.id)
                                     }
                                     key={song.id}
-                                    className="container mx-auto grid grid-cols-footer-sm items-center gap-4 px-8 lg:grid-cols-footer">
+                                    className="container mx-auto grid grid-cols-footer-sm items-center gap-4 px-8 lg:grid-cols-footer lg:px-12">
                                     <p className="hidden lg:block">
                                         {index + 1}
                                     </p>

@@ -19,7 +19,7 @@ export default function Artist() {
         },
     };
     return (
-        <section className="container relative mx-auto w-full p-6">
+        <section className="container relative mx-auto w-full p-6 lg:px-12">
             <img
                 src="/cover.png"
                 alt="cover"

@@ -30,6 +30,7 @@ export function PlayerContextProvider({ children }: { children: ReactNode }) {
             if (songs[i].id === id) break;
         }
         setCurrentSongIndex(i);
+        setPlaying(true);
     };
 
     function insertSongAfter(addAfter: number, toAdd: number) {
