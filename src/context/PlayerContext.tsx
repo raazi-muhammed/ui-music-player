@@ -10,6 +10,7 @@ const defaultValue = {
     insertSongAfter: (_: number, __: number) => {},
     nextSong: () => {},
     prevSong: () => {},
+    randomSong: () => {},
 };
 
 export const PlayerContext = createContext(defaultValue);
@@ -50,6 +51,10 @@ export function PlayerContextProvider({ children }: { children: ReactNode }) {
     const prevSong = () => {
         setCurrentSongIndex((a) => (a > 0 ? a - 1 : a));
     };
+    const randomSong = () => {
+        const randomIdx = Math.floor(Math.random() * songs.length - 1);
+        setCurrentSongIndex(randomIdx);
+    };
 
     return (
         <PlayerContext.Provider
@@ -62,6 +67,7 @@ export function PlayerContextProvider({ children }: { children: ReactNode }) {
                 insertSongAfter,
                 nextSong,
                 prevSong,
+                randomSong,
             }}>
             {children}
         </PlayerContext.Provider>

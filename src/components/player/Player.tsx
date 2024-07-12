@@ -4,6 +4,7 @@ import {
     useContext,
     useEffect,
     useRef,
+    useState,
 } from "react";
 import * as Icons from "../../icons";
 import ReactHowler from "react-howler";
@@ -33,7 +34,9 @@ function ControlButtons({
 
 export default function Player() {
     const player = useRef<ReactHowler>();
-    const { song, playing, togglePlaying, nextSong, prevSong } =
+    const [isShuffleOn, setIsShuffleOn] = useState(false);
+    const [isLoopOn, setIsLoopOn] = useState(false);
+    const { song, playing, togglePlaying, nextSong, prevSong, randomSong } =
         useContext(PlayerContext);
 
     useEffect(() => {
@@ -46,11 +49,16 @@ export default function Player() {
     return (
         <aside className="fixed bottom-20 z-10 flex h-fit w-svw flex-shrink-0 flex-col gap-8 bg-transparent px-6 py-2 lg:bottom-6 xl:sticky xl:top-0 xl:h-svh xl:w-72 xl:bg-secondary xl:py-6">
             <ReactHowler
+                key={isLoopOn.toString()}
                 html5={true}
                 preload
+                loop={isLoopOn}
                 src={song.song}
                 playing={playing}
-                onVolume={(e) => console.log({ vol: e })}
+                onEnd={() => {
+                    if (isShuffleOn) randomSong();
+                    else nextSong();
+                }}
                 ref={player as any}
             />
             <section className="ms-auto flex h-fit w-full max-w-[30rem] justify-between gap-6 space-y-4 rounded bg-accent p-4 align-middle xl:mt-auto xl:flex-col xl:gap-1">
@@ -69,7 +77,7 @@ export default function Player() {
                     </div>
                 </div>
                 <div style={{ marginBlock: "auto" }} className="h-full">
-                    <section className="my-auto mb-4 hidden gap-2 text-xs xl:flex">
+                    <section className="my-auto mb-4 hidden gap-2 text-xs">
                         <p>{formatTimeInSeconds(0)}</p>
                         <input
                             type="range"
@@ -85,7 +93,10 @@ export default function Player() {
                     </section>
                     <section className="flex h-fit justify-center gap-2 align-middle">
                         <ControlButtons
-                            className="hidden sm:block"
+                            onClick={() => setIsLoopOn((ilo) => !ilo)}
+                            className={`hidden sm:block ${
+                                isLoopOn ? "" : "opacity-50"
+                            }`}
                             size="sm"
                             icon={Icons.LoopIcon()}
                         />
@@ -117,7 +128,10 @@ export default function Player() {
                             />
                         </div>
                         <ControlButtons
-                            className="hidden sm:block"
+                            onClick={() => setIsShuffleOn((iso) => !iso)}
+                            className={`hidden sm:block ${
+                                isShuffleOn ? "" : "opacity-50"
+                            }`}
                             size="sm"
                             icon={Icons.ShuffleIcon()}
                         />
